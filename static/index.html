@@ -21,7 +21,7 @@
         const form = document.getElementById('login-form');
         form.addEventListener('submit', registerUser);
 
-        async function(event){
+        async function registerUser(event){
             event.preventDefault();
             const username = document.getElementById('userName').value;
             const password = document.getElementById('password').value;
@@ -32,10 +32,10 @@
                 header: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify{
+                body: JSON.stringify({
                     username,
                     password,
-                }
+                })
             }).then((res) => res.json());
             
             console.log(result);
