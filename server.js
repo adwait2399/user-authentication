@@ -3,7 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const User = require('./model/user');
 
-mongoose.connect('process.env.MONGO_URI',{
+mongoose.connect('mongodb://localhost:27017/user-authentication',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.post('/api/register', async (req, res) => {
     console.log(req.body);
+    
     res.json({ status: 'ok' })
 });
 
