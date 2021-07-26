@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const User = require('./model/user');
 
-mongoose.connect('mongodb://localhost:27017/user-authentication');
+mongoose.connect('process.env.MONGO_URI',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 const app = express();
 app.use('/', express.static(path.join(__dirname, 'static')));
