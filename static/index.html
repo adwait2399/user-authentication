@@ -4,47 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration page</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1> Register </h1>
-    <form id="reg-form">
-        <label for="username" name="">Enter username: </label>
-        <input type="text" autocomplete="off" name="userName" id="userName" placeholder="username"/>
-        <br><br>
-        <label for="password">Enter password: </label>
-        <input type="password" autocomplete="off" name="password" id="password" placeholder="password"/>
-        <br><br>
-        <input type="submit" value="Submit" id="submit"/>
-    </form>
+    <div id="buttons">
+
+        <button id="register">Register new user</button>
+        <button id="login">Log In</button>
+        
+    </div>
     <script>
-        const form = document.getElementById('reg-form');
-        form.addEventListener('submit', registerUser);
-
-        async function registerUser(event) {
-            event.preventDefault();
-            const username = document.getElementById('userName').value;
-            const password = document.getElementById('password').value;
-
-            
-            const result = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type' : 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    password,
-                })
-            }).then((res) => res.json())
-            
-            if(result.status === 'ok' ){
-                alert('success');
-            }else{
-                alert(result.error);
-            }
-        }
-
+        document.getElementById('register').onclick = function() {
+            location.href= "./register.html";
+        };
+        document.getElementById('login').onclick = function () {
+                location.href = "./login.html";
+        };
     </script>
 </body>
 </html>

@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration page</title>
 </head>
-
 <body>
-    <h1> Change Password </h1>
+    <h1> Registration </h1>
     <form id="reg-form">
-        <label for="password">Enter password: </label>
-        <input type="password" autocomplete="off" name="password" id="password" placeholder="password" />
+        <label for="username" name="">Enter username: </label>
+        <input type="text" autocomplete="off" name="userName" id="userName" placeholder="username"/>
         <br><br>
-        <input type="submit" value="Submit" id="submit" />
+        <label for="password">Enter password: </label>
+        <input type="password" autocomplete="off" name="password" id="password" placeholder="password"/>
+        <br><br>
+        <input type="submit" value="Submit" id="submit"/>
     </form>
     <script>
         const form = document.getElementById('reg-form');
-        form.addEventListener('submit', changePassowrd);
+        form.addEventListener('submit', registerUser);
 
-        async function changePassowrd(event) {
+        async function registerUser(event) {
             event.preventDefault();
+            const username = document.getElementById('userName').value;
             const password = document.getElementById('password').value;
 
-
-            const result = await fetch('/api/change-password', {
+            
+            const result = await fetch('/api/register', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type' : 'application/json'
                 },
                 body: JSON.stringify({
-                    newpassword = password,
-                    token = localStorage.getItem('token')
+                    username,
+                    password,
                 })
             }).then((res) => res.json())
-
-            if (result.status === 'ok') {
+            
+            if(result.status === 'ok' ){
                 alert('success');
-            } else {
+            }else{
                 alert(result.error);
             }
         }
 
     </script>
 </body>
-
 </html>

@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = "fnij()&_*shfguirdhf44^$(@Qgujihdsuiouhu";
 
+// CONNECTION TO DATABASE USING .ENV
+
 mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -18,13 +20,39 @@ const app = express();
 app.use('/', express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 
-app.post('/api/change-password', (req, res) => {
-    const { token } = res.body;
-    const user = jwt.verify(token, JWT_SECRET);
+// CHANGE-PASSWORD PAGE API
 
-    console.log(user);
-    res.json({ status: 'ok' })
+app.post('/api/change-password', async (req, res) => {
+    const { token, newpassword: plainTextPassword } = res.body;
+    
+    if (!plainTextPassword || typeof plainTextPassword !== 'string') {
+        return res.json({ status: 'error', error: 'Invalid password' });
+    }
+
+    if (plainTextPassword.length < 5) {
+        return res.json({ status: 'error', error: 'password too small should be atleast 6 characters' });
+    }
+
+    try{
+        const user = jwt.verify(token, JWT_SECRET);
+        const _id = user.id;
+
+        const password = await bcrypt.hash(plainTextPassword, 10);
+        await User.updateOne(
+            { 
+                _id 
+            },
+            {
+                $set: { password }
+            });
+            res.json({ status: 'ok' });
+    }catch(error){
+        res.json({ status: 'error', error: '000'})
+    }
+
 });
+
+// LOGIN PAGE API 
 
 app.post('/api/login', async (req, res) => {
     
@@ -43,7 +71,7 @@ app.post('/api/login', async (req, res) => {
              username: user.username
             },
             JWT_SECRET
-        )
+        );
 
         return res.json({ status: 'ok', data: token });
     }
@@ -52,6 +80,7 @@ app.post('/api/login', async (req, res) => {
 })
 
 // REGISTRATION  PAGE  API
+
 app.post('/api/register', async (req, res) => {
     console.log(req.body);
     
@@ -91,6 +120,8 @@ app.post('/api/register', async (req, res) => {
 
     res.json({ status: 'ok' })
 });
+
+// STARTING SERVER AT PORT 8000
 
 app.listen(8000, () => {
     console.log('server up at 8000');
