@@ -21,7 +21,7 @@
         const form = document.getElementById('login-form');
         form.addEventListener('submit', registerUser);
 
-        async function registerUser(event){
+        async function registerUser(event) {
             event.preventDefault();
             const username = document.getElementById('userName').value;
             const password = document.getElementById('password').value;
@@ -29,14 +29,14 @@
             
             const result = await fetch('/api/register', {
                 method: 'POST',
-                header: {
-                    'content-type': 'application/json'
+                headers: {
+                    'Content-Type' : 'application/json'
                 },
                 body: JSON.stringify({
                     username,
                     password,
                 })
-            }).then((res) => res.json());
+            }).then((res) => res.json())
             
             console.log(result);
         }
