@@ -18,6 +18,14 @@ const app = express();
 app.use('/', express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 
+app.post('/api/change-password', (req, res) => {
+    const { token } = res.body;
+    const user = jwt.verify(token, JWT_SECRET);
+
+    console.log(user);
+    res.json({ status: 'ok' })
+});
+
 app.post('/api/login', async (req, res) => {
     
     const{ username, password } = req.body;
