@@ -4,6 +4,42 @@
     box-sizing: border-box;
 }
 
+html, body{
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eeeeee;
+}
+
+#home{
+    text-align: center;
+}
+
+#home h1{
+    margin: 32px 0;
+}
+
 #home #buttons {
-    margin: 0 auto;
+    margin: auto;
+    padding: 32px;
+    height: 50%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+button{
+    padding: 18px 30px;
+    background-color:  #EFD7AF;
+    color: #DF2127;
+    border: none;
+    border-radius: 8px;
 }
