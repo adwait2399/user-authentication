@@ -23,7 +23,7 @@ app.use(express.json());
 // CHANGE-PASSWORD PAGE API
 
 app.post('/api/change-password', async (req, res) => {
-    const { token, newpassword: plainTextPassword } = res.body;
+    const { token, newpassword: plainTextPassword } = req.body;
     
     if (!plainTextPassword || typeof plainTextPassword !== 'string') {
         return res.json({ status: 'error', error: 'Invalid password' });
