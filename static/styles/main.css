@@ -1,0 +1,9 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#home #buttons {
+    margin: 0 auto;
+}
