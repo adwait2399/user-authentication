@@ -1,45 +1,71 @@
 * {
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body{
-    min-height: 100vh;
-    width: 100%;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eeeeee;
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eeeeee;
 }
 
-#home{
-    text-align: center;
+#home {
+  text-align: center;
 }
 
-#home h1{
-    margin: 32px 0;
+#home h1 {
+  margin: 32px 0;
 }
 
-#home #buttons {
-    margin: auto;
-    padding: 32px;
-    height: 50%;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: stretch;
-    gap: 24px;
-    border-radius: 16px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.1);
-    background-color: #fff;
+#home #buttons,
+#register #reg-form {
+  margin: auto;
+  padding: 32px;
+  height: 50%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-button{
-    padding: 18px 30px;
-    background-color:  #EFD7AF;
-    color: #DF2127;
-    border: none;
-    border-radius: 8px;
+button,
+input[type='submit'] {
+  padding: 18px 30px;
+  background-color: #efd7af;
+  color: #df2127;
+  border: none;
+  border-radius: 8px;
+}
+
+#register {
+  text-align: center;
+}
+
+#register h1 {
+  margin: 32px 0;
+}
+
+#register #reg-form {
+  height: fit-content;
+}
+
+#register #reg-form input[type='text'],
+input[type='password'] {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+#register #reg-form label {
+  font-size: 18px;
 }
