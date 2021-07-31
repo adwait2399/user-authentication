@@ -69,3 +69,37 @@ input[type='password'] {
 #register #reg-form label {
   font-size: 18px;
 }
+
+#login #login-form {
+  height: fit-content;
+}
+
+#login h1 {
+  margin: 32px 0;
+}
+
+#login #login-form input[type='text'],
+input[type='password'] {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+#login #login-form {
+  margin: auto;
+  padding: 32px;
+  height: 50%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+#login {
+  text-align: center;
+}
