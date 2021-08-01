@@ -88,7 +88,6 @@ input[type='password'] {
 #login #login-form {
   margin: auto;
   padding: 32px;
-  height: 50%;
   width: 400px;
   display: flex;
   flex-direction: column;
