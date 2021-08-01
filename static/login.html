@@ -19,6 +19,7 @@
         <input type="password" autocomplete="off" name="password" id="password" placeholder="password" />
       </div>
       <input type="submit" value="Submit" id="submit" />
+      <button id="change-password-btn">Change password</button>
     </form>
     <script>
       const form = document.getElementById('login-form');
@@ -47,6 +48,18 @@
         } else {
           alert(result.error);
         }
+      }
+
+      form.addEventListener('change-password-btn', change - password);
+      async function login(event) {
+        event.preventDefault();
+        document.getElementById('change-password-btn').onclick = function () {
+          if (result.status === 200) {
+            location.href = './change-password.html';
+          } else {
+            alert(result.error);
+          }
+        };
       }
     </script>
   </body>

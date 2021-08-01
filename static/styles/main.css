@@ -102,3 +102,27 @@ input[type='password'] {
 #login {
   text-align: center;
 }
+
+#change-password #change-password-form {
+  margin: auto;
+  padding: 32px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+#change-password h1 {
+  text-align: center;
+  margin: 32px 0;
+}
+
+#change-password #change-password-form {
+  height: fit-content;
+}
